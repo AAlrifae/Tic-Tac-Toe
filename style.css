@@ -17,4 +17,24 @@
     height: 40px;
     border-radius: 5px;
   }
-  
+   table {
+      border-collapse: collapse;
+    }
+    
+     td {
+      border: 2px solid black;
+      margin: 0px;
+    } 
+    td:first-of-type {
+      border-left: 0px solid blue
+    }
+    td:last-of-type {
+      border-right: 0px solid blue
+    }
+   tr:first-child td {
+     border-top: none;
+   }
+   tr:last-child td {
+    border-bottom: none;
+  }
+  td
