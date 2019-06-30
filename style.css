@@ -1,0 +1,20 @@
+.dot {
+    height: 25px;
+    width: 25px;
+    border: 10px solid green;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  #orangeBox {
+    background: #f90;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+  
