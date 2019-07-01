@@ -24,6 +24,8 @@
      td {
       border: 2px solid black;
       margin: 0px;
+      height: 100px;
+      width: 100px;
     } 
     td:first-of-type {
       border-left: 0px solid blue
@@ -37,4 +39,5 @@
    tr:last-child td {
     border-bottom: none;
   }
-  td
+  #box-1 {
+  }
