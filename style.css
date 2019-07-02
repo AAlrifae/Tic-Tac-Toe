@@ -39,5 +39,7 @@
    tr:last-child td {
     border-bottom: none;
   }
-  #box-1 {
+  h5 {
+    display: inline;
+    text-align: center;
   }

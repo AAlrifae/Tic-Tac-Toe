@@ -1,15 +1,24 @@
 console.log('hi');
 
 const boxes = $('td');
-// const box1 = $('#box-1');
 let player = 'X';
+
 console.log(boxes);
-// box1.css('background', 'red');
+let tie = 0;
 let player1 = 'X';
 let player2 = 'O';
 let player1Score = 0;
 let player2Score = 0;
+//========= DOM============
+// const player1Input = document.querySelector('#player1Input').value
+var player1Input = $('#player1Input').val();
+const player2Input = $('#player2Input').val()
+
+$('#player1').val(player2Input);
+$('#player1').innerText = player2Input
+
 const changeOnCLick = function() {
+    tie++;
     if (this.innerText == '') {
     this.innerText = player;
     switch (player) {
@@ -25,29 +34,22 @@ const changeOnCLick = function() {
     if(winner){
         if (winner == player1) {
             player1Score++;
+            console.log(player1Score);
             
         } else {
             player2Score++;
+            console.log(player2Score)
         }
     }
-    console.log(player1Score);
 }   
 
 const win = function() {
     //declare boxes
+    const boxesValues= []
     for (let i = 1; i < 10; i++) {
         window['box'+i] = document.querySelector(`#box-${i}`).innerText || `${i}`  
     }
-    // let box1 = document.querySelector('#box-1').innerText || '1'
-    // let box2 = document.querySelector('#box-2').innerText || '2'
-    // let box3 = document.querySelector('#box-3').innerText || '3'
-    // let box4 = document.querySelector('#box-4').innerText || '4'
-    // let box5 = document.querySelector('#box-5').innerText || '5'
-    // let box6 = document.querySelector('#box-6').innerText || '6'
-    // let box7 = document.querySelector('#box-7').innerText || '7'
-    // let box8 = document.querySelector('#box-8').innerText || '8'
-    // let box9 = document.querySelector('#box-9').innerText || '9'
-
+    //create array 
     const check = [
         ( (box1 == box2) && (box1 == box3) )? box1: '', 
         ( (box4 == box5) && (box4 == box6) )? box4: '', 
@@ -62,9 +64,26 @@ const win = function() {
         if(check[i]){
             console.log('winner', check[i]);
             boxes.unbind( "click", changeOnCLick );
+            tie = 0;
             return  check[i];
-        }
+        } 
     }
+    if (tie === 9){
+    console.log('tie');}
     return '';
     }
+
+    const resetGame = function () {
+        for (let i = 0; i < boxes.length; i++) {
+             boxes[i].innerText = ''         
+        }
+        boxes.click(changeOnCLick);
+    }
+
+    // const tie = function() {
+        
+    // }
+
+
+    $('.reset').click(resetGame);
     boxes.click(changeOnCLick);
