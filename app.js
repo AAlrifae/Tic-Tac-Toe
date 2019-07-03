@@ -7,42 +7,43 @@ console.log(boxes);
 let tie = 0;
 let player1 = 'X';
 let player2 = 'O';
+const player1Anime = "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle id='circle' cx='50' cy='50' r='45'/> </svg>";
 let player1Score = 0;
 let player2Score = 0;
 //========= DOM============
-// const player1Input = document.querySelector('#player1Input').value
-var player1Input = $('#player1Input').val();
-const player2Input = $('#player2Input').val()
-
-$('#player1').val(player2Input);
-$('#player1').innerText = player2Input
 
 const changeOnCLick = function() {
     tie++;
     if (this.innerText == '') {
     this.innerText = player;
+    this.classList += ' move1';
     switch (player) {
         case player1:
             player = player2;
+
             break;
         default:
             player = player1;
             break;
         }  
     }
+    // debugger;
     const winner = win();
     if(winner){
+        // debugger;
         if (winner == player1) {
             player1Score++;
+            document.querySelector('.score1').innerText = player1Score;
             console.log(player1Score);
             
         } else {
             player2Score++;
+            document.querySelector('.score2').innerText = player2Score;
             console.log(player2Score)
         }
     }
 }   
-
+// The win function
 const win = function() {
     //declare boxes
     const boxesValues= []
@@ -69,8 +70,10 @@ const win = function() {
         } 
     }
     if (tie === 9){
-    console.log('tie');}
-    return '';
+        boxes.unbind( "click", changeOnCLick );
+    console.log('tie');
+            }
+    return false;
     }
 
     const resetGame = function () {
@@ -79,11 +82,6 @@ const win = function() {
         }
         boxes.click(changeOnCLick);
     }
-
-    // const tie = function() {
-        
-    // }
-
 
     $('.reset').click(resetGame);
     boxes.click(changeOnCLick);
