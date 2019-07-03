@@ -24,22 +24,10 @@ h5 {
 }
 h2{
   /* margin-top: 5px; */
-  font-family: 'Courier New', Courier, monospace
-
+  font-family: 'Courier New', Courier, monospace;
 
 }
 
-  #orangeBox {
-    background: #f90;
-    color: #fff;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-  }
    table {
       border-collapse: collapse;
       text-align: center;
@@ -195,5 +183,13 @@ h2{
     } */
     h1{
       color: rgb(137, 108, 206);
-      font-size: 100px;
+      font-size: 70px; 
     }
+    @media only screen and (max-width: 375px) {
+
+    h1{
+         font-size: 30px; 
+      }
+    }
+   
+   
