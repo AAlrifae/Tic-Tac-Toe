@@ -1,15 +1,8 @@
-.dot {
-    height: 25px;
-    width: 25px;
-    border: 10px solid green;
-    border-radius: 50%;
-    display: inline-block;
-  }
 body{
   background: rgba(233, 231, 133,0.5);
 }
 .container {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   justify-content: center;
   /* margin-left: 3pc; */
@@ -17,26 +10,22 @@ body{
   margin-right: auto;
   /* display: table; */
 }
-
-
-.player1container{
-  border: 2px solid blue;
-  width: 150px;
-}
 .player2container{
-  border: 2px solid red;
-  width: 150px;
-  
-}
-.resetButton{
-  border: 2px solid green;
+  /* border: 2px solid red; */
+  /* width: 150px; */
+  padding-left: 150px; 
+  padding-top:0; 
 }
 h5 {
   /* margin-bottom: 5px; */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
   
 }
 h2{
   /* margin-top: 5px; */
+  font-family: 'Courier New', Courier, monospace
+
 
 }
 
@@ -54,7 +43,7 @@ h2{
    table {
       border-collapse: collapse;
       text-align: center;
-      /* background: rgba(245, 234, 132,0.7) */
+      margin-bottom: 15px;
     }
     table.center {
       margin-left:auto; 
@@ -64,8 +53,8 @@ h2{
      td {
       border: 8px solid  rgba(255, 187, 0, 0.541);;
       margin: 0px;
-      height: 100px;
-      width: 100px;
+      height: 150px;
+      width: 150px;
       text-align: center;
       color: rgb(7, 218, 190);
       font-family: 'Alfa Slab One', cursive;
@@ -85,61 +74,127 @@ h2{
    tr:last-child td {
     border-bottom: none;
   }
-  /* h5 {
-    display: inline;
-    text-align: center;
-  }
-  h2 {
-    
-    margin-left: 20px;
-    display: inline-flex;
-        justify-content: center;
-  } */
-
-  svg {
-    animation: 2s linear infinite svg-animation;
-    max-width: 50px;
+  
+  .box{
+    /* border: 2px solid green; */
+     /* border: 2px solid black; */
+     display: flex;
+     justify-content: center;
+     /* margin-left: 3pc; */
+     margin-left: auto;
+     margin-right: auto;
+     /* display: table; */
+   }
+  
+  .btn:link,
+  .btn:visited{
+    text-decoration: none;
+    text-transform:uppercase;
+    position:relative;
+    top:0;
+    left:0;
+    padding:20px 40px;
+    border-radius:100px;
+    display:inline-block;
+    transition: all .5s;
   }
   
-
-  @keyframes svg-animation {
-    0% {
-      transform: rotateZ(0deg);
-    }
-    100% {
-      transform: rotateZ(360deg)
-    }
+  .btn-white{
+    background:rgb(98, 218, 94);
+    color:#000;
   }
   
-
-  circle {
-    animation: 1.4s ease-in-out infinite both circle-animation;
-    display: block;
-    fill: transparent;
-    stroke: #2f3d4c;
-    stroke-linecap: round;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 280;
-    stroke-width: 10px;
-    transform-origin: 50% 50%;
+  .btn:hover{
+     box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+     transform : translateY(-3px);
   }
   
-
-  @keyframes circle-animation {
-    0%,
-    25% {
-      stroke-dashoffset: 280;
-      transform: rotate(0);
-    }
-    
-    50%,
-    75% {
-      stroke-dashoffset: 75;
-      transform: rotate(45deg);
-    }
-    
-    100% {
-      stroke-dashoffset: 280;
-      transform: rotate(360deg);
+  .btn:active{
+    box-shadow:0px 5px 10px rgba(0,0,0,0.2);
+    transform:translateY(-1px);
+  }
+  
+  .btn-bottom-animation-1{
+    animation:comeFromBottom 1s ease-out .8s;
+  }
+  
+  .btn::after{
+    content:"";
+    text-decoration: none;
+    text-transform:uppercase;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    border-radius:100px;
+    display:inline-block;
+    z-index:-1;
+    transition: all .5s;
+  }
+  
+  .btn-white::after {
+      background: rgb(98, 218, 94);
+  }
+  
+  .btn-animation-1:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+  }
+  
+  @keyframes comeFromBottom{
+    0%{
+      opacity:0;
+      transform:translateY(40px);
+    } 
+    100%{
+      opacity:1;
+      transform:translateY(0);
     }
   }
+  h3 {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform : translate(-50% ,-50%);
+    }
+   
+    .typewriter h1 {
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+      border-right: .15em solid orange; /* The typwriter cursor */
+      white-space: nowrap; /* Keeps the content on a single line */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      letter-spacing: .15em; /* Adjust as needed */
+      animation: 
+        typing 1.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    }
+    .typewriter{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform : translate(-50% ,-50%);
+      display: flex;
+  justify-content: center;
+  /* margin-left: 3pc; */
+  margin-left: auto;
+  margin-right: auto;
+  /* display: table; */
+}
+    
+    
+    /* The typing effect */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: rgb(106, 61, 156); }
+    }
+    h1{
+      color: rgb(85, 165, 85);
+      font-size: 30px;
+    }

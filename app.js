@@ -7,21 +7,21 @@ console.log(boxes);
 let tie = 0;
 let player1 = 'X';
 let player2 = 'O';
-const player1Anime = "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle id='circle' cx='50' cy='50' r='45'/> </svg>";
+// const player1Anime = "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle id='circle' cx='50' cy='50' r='45'/> </svg>";
 let player1Score = 0;
 let player2Score = 0;
 //========= DOM============
-const player1Input = document.getElementById('player1Name');
-const changeName = function() {
-    const player1Name = document.getElementById('player1');
-    player1Name.innerText = player1Input.value;   
-}
+// const player1Input = document.getElementById('player1Name');
+// const changeName = function() {
+//     const player1Name = document.getElementById('player1');
+//     player1Name.innerText = player1Input.value;   
+// }
 
-document.querySelector('#player1').addEventListener('click', function(){
-    console.log(this);
-    console.log(this.select);
-    this.select();
-});
+// document.querySelector('#player1').addEventListener('click', function(){
+//     console.log(this);
+//     console.log(this.select);
+//     this.select();
+// });
 
 // player1Input.addEventListener('keypress', changeName);
 const changeOnCLick = function() {
@@ -56,6 +56,11 @@ const changeOnCLick = function() {
     }
 }   
 // The win function
+const winnerDisplay = document.querySelector('#h1');
+const winnerDiv = document.querySelector('#typewriter');
+const drawDisplay = document.querySelector('#h2')
+const drawDiv = document.querySelector('#typewriter1');
+
 const win = function() {
     //declare boxes
     const boxesValues= []
@@ -75,14 +80,21 @@ const win = function() {
     ]
     for (let i = 0; i < check.length; i++) {
         if(check[i]){
+            console.log(check[i])
+             winnerDisplay.classList += ' win'
+            winnerDiv.classList += ' typewriter'
+            winnerDisplay.innerText = `winner ${check[i]}`
             console.log('winner', check[i]);
             boxes.unbind( "click", changeOnCLick );
             tie = 0;
+
             return  check[i];
         } 
     }
     if (tie === 9){
         boxes.unbind( "click", changeOnCLick );
+        drawDiv.classList += ' typewriter'
+        drawDisplay.innerText = `DRAW `
     console.log('tie');
             }
     return false;
@@ -90,10 +102,17 @@ const win = function() {
 
     const resetGame = function () {
         for (let i = 0; i < boxes.length; i++) {
-             boxes[i].innerText = ''         
+             boxes[i].innerText = '' ;
         }
+        for (let i = 1; i < 10; i++) {
+            window['box'+i] = document.querySelector(`#box-${i}`).classList.remove('move')  
+        }
+        winnerDisplay.innerText = ``;
+         winnerDisplay.classList.remove('win');
+         winnerDiv.classList.remove('typewriter');
+         drawDiv.classList.remove('typewriter')
+        drawDisplay.innerText = ``;
         boxes.click(changeOnCLick);
     }
-
-    $('.reset').click(resetGame);
+    $('#reset').click(resetGame);
     boxes.click(changeOnCLick);
