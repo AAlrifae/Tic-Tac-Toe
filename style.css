@@ -8,6 +8,37 @@
 body{
   background: rgba(233, 231, 133,0.5);
 }
+.container {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  /* margin-left: 3pc; */
+  margin-left: auto;
+  margin-right: auto;
+  /* display: table; */
+}
+
+
+.player1container{
+  border: 2px solid blue;
+  width: 150px;
+}
+.player2container{
+  border: 2px solid red;
+  width: 150px;
+  
+}
+.resetButton{
+  border: 2px solid green;
+}
+h5 {
+  /* margin-bottom: 5px; */
+  
+}
+h2{
+  /* margin-top: 5px; */
+
+}
 
   #orangeBox {
     background: #f90;
@@ -29,15 +60,14 @@ body{
       margin-left:auto; 
       margin-right:auto;
     }
-    
-    
+  
      td {
       border: 8px solid  rgba(255, 187, 0, 0.541);;
       margin: 0px;
       height: 100px;
       width: 100px;
       text-align: center;
-      color: rgb(218, 7, 7);
+      color: rgb(7, 218, 190);
       font-family: 'Alfa Slab One', cursive;
       font-size: 40px
 
@@ -55,17 +85,16 @@ body{
    tr:last-child td {
     border-bottom: none;
   }
-  h5 {
+  /* h5 {
     display: inline;
     text-align: center;
   }
   h2 {
-    /* display: inline; */
+    
     margin-left: 20px;
     display: inline-flex;
-        /* align-items: center; */
         justify-content: center;
-  }
+  } */
 
   svg {
     animation: 2s linear infinite svg-animation;

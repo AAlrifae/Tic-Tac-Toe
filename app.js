@@ -11,12 +11,24 @@ const player1Anime = "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/s
 let player1Score = 0;
 let player2Score = 0;
 //========= DOM============
+const player1Input = document.getElementById('player1Name');
+const changeName = function() {
+    const player1Name = document.getElementById('player1');
+    player1Name.innerText = player1Input.value;   
+}
 
+document.querySelector('#player1').addEventListener('click', function(){
+    console.log(this);
+    console.log(this.select);
+    this.select();
+});
+
+// player1Input.addEventListener('keypress', changeName);
 const changeOnCLick = function() {
     tie++;
     if (this.innerText == '') {
     this.innerText = player;
-    this.classList += ' move1';
+    this.classList += ' move';
     switch (player) {
         case player1:
             player = player2;
